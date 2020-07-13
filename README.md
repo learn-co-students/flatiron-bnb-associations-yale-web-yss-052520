@@ -49,3 +49,46 @@ has_many :listings, :foreign_key => 'host_id'
 [Foreign key and Class Name AR class methods](http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/flatiron-bnb-associations' title='Flatiron-bnb: Associations'>Flatiron-bnb: Associations</a> on Learn.co and start learning to code for free.</p>
+
+City
+    name
+    has many neighborhoods
+    has many listings through neighborhoods
+
+Listing
+    title
+    description
+    address
+    listing type
+    price (float)
+    neighborhood_id
+    host_id
+    has many reservations
+    has many reviews through reservation
+    has guests
+
+Neighborhood
+    name
+    city_id
+    has many listings
+
+Reservation
+    checkin (datetime)
+    checkout
+    listing_id
+    guest_id
+
+Review
+    description
+    rating
+    guest_id
+    reservation_id
+
+User
+    name
+    can be host
+        has mnay listings
+        has many reservations through listing
+    can be guest
+        has many trips
+        has many reviews
